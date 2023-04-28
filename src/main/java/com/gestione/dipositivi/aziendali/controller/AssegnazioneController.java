@@ -25,6 +25,7 @@ public class AssegnazioneController {
     AssegnazioneService service;
 
     @GetMapping
+    // @PreAuthorize(value = "isAuthenticated()")
     public ResponseEntity<?> getAllDipendente() {
 	return new ResponseEntity<List<Dipendente>>(service.getAllDipendente(), HttpStatus.OK);
     }

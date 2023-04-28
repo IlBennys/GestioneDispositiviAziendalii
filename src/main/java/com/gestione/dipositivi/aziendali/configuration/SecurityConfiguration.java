@@ -48,8 +48,8 @@ public class SecurityConfiguration {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
 	http.cors().and().csrf().disable()
-		.authorizeHttpRequests((authorize) -> authorize.requestMatchers(HttpMethod.GET, "/api/**").permitAll()
-			.requestMatchers("/api/auth/**").permitAll().anyRequest().authenticated())
+		.authorizeHttpRequests((authorize) -> authorize.requestMatchers(HttpMethod.GET, "/**").permitAll()
+			.requestMatchers("/**").permitAll().anyRequest().authenticated())
 		.exceptionHandling(exception -> exception.authenticationEntryPoint(authenticationEntryPoint))
 		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
